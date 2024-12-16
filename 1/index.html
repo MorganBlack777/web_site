@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Погода сегодня</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="icon" href="./css/favicon.ico" type="image/x-icon">
+
+  <script src="https://kit.fontawesome.com/170b2fd3fe.js" crossorigin="anonymous"></script>
+
+  <!-- Loader -->
+  <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+</head>
+
+<body>
+  <!-- onload="loader()" -->
+  <!-- Loader -->
+  <!-- <div class="preloader">
+        <div class="spinner"></div>
+    </div> -->
+
+  <div class="content">
+    <!-- navbar -->
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#">Главная</a></li>
+        <li class="nav-item">
+          <a href="./contributors.html">Участие в проекте</a>
+        </li>
+        <li class="nav-item"><a href="./About.html">О нас</a></li>
+      </ul>
+    </nav>
+
+    <!-- body -->
+    <header>
+      <div class="homepage">
+        <span class="landing-text">WeatherNow</span> <br />
+        <span class="landing-text-2">Where Is The Sun? Is It Above Or Below The Clouds?</span>
+      </div>
+    </header>
+    <div class="container">
+      <div class="form">
+        <!-- DropDown Menu -->
+        <div class="dropdown">
+          <button name="line" class="dropbtn" id="button">По умолчанию</button>
+          <div class="dropdown-content">
+            <a name="line">По умолчанию</a>
+            <a name="bar">Полоса</a>
+            <a name="doughnut">Пончик</a>
+            <a name="polarArea">Полярная область</a>
+            <a name="radar">Радар</a>
+          </div>
+        </div>
+        <!-- End -->
+
+        <!-- <input id="input" type="text" placeholder="Enter a city name" /> -->
+
+        <!-- Input City Name -->
+        <input list="cities" id="input" placeholder="Выберите или введите название города">
+
+        <!-- Popular City Name  -->
+        <datalist id="cities">
+          <!-- <option value="CurrentLocation"> -->
+          <option value="Москва">
+          <option value="Санкт-Петербург">
+          <option value="Чикаго">
+          <option value="Владивосток">
+          <option value="Химки">
+          <option value="Париж">
+          <option value="Берлин">
+          <option value="Крым">
+          <option value="Нью Йорк">
+          <option value="Токио">
+          <option value="Лондон">
+        </datalist>
+        <!-- Input End -->
+
+
+        <button id="button" class="button" onclick="getWeather()">
+          <span class="button-text">Поиск</span>
+          <img class="arrow" src="https://img.icons8.com/ios-filled/24/ffffff/long-arrow-right.png" alt="arrow">
+        </button>
+
+         <!-- Voice Search Button -->
+      <button id="voice-search-btn" class="button">
+        <i class="fas fa-microphone"></i>
+      </button>
+
+
+      </div>
+      
+      <!-- Current Weather Location -->
+      <button id="currloc_button" onclick="getCurrLoc()">Использовать текущее местоположение</button>
+      <div id="weather-info"></div>
+
+
+      <!-- Displaying weather info  -->
+        <div class="result-container" style="display: none">
+      <div id="loader" class="loader"></div>
+      <div id="result" class="result-box" style="display: none"></div>
+      <div id="aqi-info" class="aqi-box" style="display: none"></div>
+    </div>
+
+      <br><br>
+      <canvas id="hourlyChart" width="400" height="200"></canvas>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <!-- footer -->
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <div class="footer-section about">
+            <p>
+              <span class="light-text">WeatherNow is a weather application that displays the weather
+                of any city.</span>
+              <br />
+              © Арсений Ежов <span id="copyrightYear"></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- scripts -->
+
+  <script src="./js/geolocation.js" type="module"></script>
+  <script src="./js/script.js" type="module"></script>
+
+</body>
+
+</html>
